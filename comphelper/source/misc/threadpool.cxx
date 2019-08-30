@@ -132,7 +132,7 @@ sal_Int32 ThreadPool::getPreferredConcurrency()
             nThreads = rtl_str_toInt32(pEnv, 10);
         }
 
-        nThreads = std::min(nHardThreads, nThreads);
+        nThreads = std::max(nHardThreads, nThreads);
         return std::max<sal_Int32>(nThreads, 1);
     }();
 
